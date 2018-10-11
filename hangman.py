@@ -364,7 +364,7 @@ while gameIsOn:
                 print("____________________________________________________________________________________________________") 
             print("")
             #ENTER YOUR API KEY/ID HERE
-            r=apistuff(secretWord,api_id="",api_key="")
+            r=apistuff(secretWord,api_id="2fbfbe4f",api_key="e633c614e9eb48bee70d3ca3c662cc11")
             ###########################################
             
             lastGame=hangman(secretWord,totalguesses,r)
@@ -392,7 +392,7 @@ while gameIsOn:
             totalguesses=random.randint(6,11)
             
             #ENTER YOUR API KEY/ID HERE
-            r=apistuff(secretWord,api_id="",api_key="")
+            r=apistuff(secretWord,api_id="2fbfbe4f",api_key="e633c614e9eb48bee70d3ca3c662cc11")
             ###########################################
             
             lastGame=hangman(secretWord,totalguesses,r)
