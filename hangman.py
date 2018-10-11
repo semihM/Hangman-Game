@@ -100,7 +100,7 @@ def getHint(req):
         else:
             print("ERROR CODE: ",req.status_code)
             print("Sorry couldn't find a hint!")
-            return req.status_code
+            return None
     except:
         print("Sorry, an unexpected error occured!")
         
@@ -362,7 +362,7 @@ while gameIsOn:
             totalguesses=numberCheck(totalguesses)
             for i in range(45):
                 print("____________________________________________________________________________________________________") 
-
+            print("")
             #ENTER YOUR API KEY/ID HERE
             r=apistuff(secretWord,api_id="",api_key="")
             ###########################################
@@ -386,6 +386,7 @@ while gameIsOn:
         except:
             print("Enter a valid number!: ")
         else:
+            print("")
             filteredList= loadWords(wordsdir,a)
             secretWord = str(chooseWord(filteredList))
             totalguesses=random.randint(6,11)
