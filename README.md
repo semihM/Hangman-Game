@@ -2,8 +2,11 @@
 A simple hangman game written in Python
 
 API's call limits:
+
 Limited to 3k calls per month
+
 Limited to 60 requests per minute
+
 
 In the case of running out of free calls, you can :
 
