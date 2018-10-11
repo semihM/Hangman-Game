@@ -362,7 +362,11 @@ while gameIsOn:
             totalguesses=numberCheck(totalguesses)
             for i in range(45):
                 print("____________________________________________________________________________________________________") 
-            r=apistuff(secretWord,api_id="2fbfbe4f",api_key="7feb5b10da545c16147d79b7ed8b902c")
+
+            #ENTER YOUR API KEY/ID HERE
+            r=apistuff(secretWord,api_id="",api_key="")
+            ###########################################
+            
             lastGame=hangman(secretWord,totalguesses,r)
             afterGame=1            
             gamesPlayed.append(lastGame)
@@ -385,7 +389,11 @@ while gameIsOn:
             filteredList= loadWords(wordsdir,a)
             secretWord = str(chooseWord(filteredList))
             totalguesses=random.randint(6,11)
-            r=apistuff(secretWord,api_id="2fbfbe4f",api_key="7feb5b10da545c16147d79b7ed8b902c")
+            
+            #ENTER YOUR API KEY/ID HERE
+            r=apistuff(secretWord,api_id="",api_key="")
+            ###########################################
+            
             lastGame=hangman(secretWord,totalguesses,r)
             gamesPlayed.append(lastGame)
             hintused=gamesPlayed[-1]["hint used? "]
