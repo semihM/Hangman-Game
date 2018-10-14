@@ -20,7 +20,7 @@ Please consider sharing issues or improvements on the functions and have fun!
 
 """
 # =============================================================================
-# DEPENDANCIES
+# DEPENDENCIES
 # =============================================================================
 import random
 import string
