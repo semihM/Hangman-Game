@@ -128,6 +128,11 @@ def getInput():
 # ============================================================================= 
 
 def numberCheck(num,limit=25):
+    """
+    Gets 2 parameters,
+    num for the comparison
+    limit for the upper bound
+    """
     try:
         num=int(num)
         limit=int(limit)
@@ -212,11 +217,16 @@ def getAvailableLetters(l):
 # GAME END/RESET FUNCTIONS
 # =============================================================================
 def gameEnded(during,later,w):
+    """
+    Gets  2 boolean values and the secret word as parameters:
+    during = wheter or not if the player called for a hint during game
+    later = wheter or not if the player called for a hint after the game ended
+    w = the secret word which the player was trying to guess
+    """
     print("")
     if during == False and later == False:
         print('Type "meaning" to get the dictionary meaning of the "',w,'".')
-    print('Want to play again? Type "yes" or "no".')
-    gameEnd=input()
+    gameEnd=input('Want to play again? Type "yes" or "no".')
     testing=True
     while testing:
         if gameEnd.lower()=="yes" or gameEnd.lower()=="no" or gameEnd.lower()=="meaning":
@@ -228,6 +238,10 @@ def gameEnded(during,later,w):
 def gameReset(word,guesses,r,ending):
     """
     Resets the parameters the main function takes
+    word=secret word,
+    guesses= number of guesses given to player
+    r = http request
+    ending = answer given after the game ends
     """
     del word,guesses,r,ending
    
@@ -242,8 +256,6 @@ def hangman(w,g,req):
     req=request code from API
     Starts up an interactive game of Hangman.
     """ 
-
-    "Welcome to the game Hangman!"
     print("I am thinking of a word that is ",len(w)," letters long")
     print("-----------")
     guessesleft=g
@@ -338,7 +350,7 @@ gamesPlayed=[]
 gameIsOn=1
 afterGame=0
 asked=0
-#CHANGE THIS TO YOUR DIRECTORY OF WORDS
+#CHANGE THIS TO YOUR DIRECTORY OF WORDS FILE
 wordsdir="words.txt"
 #THE LIST OF WORDS
 allWords=loadWords(wordsdir,1)
