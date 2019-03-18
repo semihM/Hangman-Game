@@ -1,6 +1,8 @@
 # Hangman-Game
 A simple hangman game written in Python
 
+Download the source code as a zip and extract the files, run hangman.py from your terminal.
+
 API's call limits:
 
 Limited to 3k calls per month
