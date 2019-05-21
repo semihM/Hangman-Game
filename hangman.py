@@ -30,19 +30,20 @@ import json
 # =============================================================================
 #  LOAD AND CHOOSE FROM LOCAL WORDS     
 # =============================================================================
-def loadWords(directory,lim=1):
+def loadWords(directory,lim=None):
     """
     Returns a list filled with words
+    directory : directory of the file
+    lim : max word length
     """
     #IMPORTING WORDS' FILE
     filedir = open(directory, 'r')
     lines = filedir.readline()
     wordlist = lines.split()
     filteredlist=list()
-    filteredlist=[wordlist[c] for c in range(len(wordlist)) if len(wordlist[c])>=lim]
-    #print(len(filteredlist), " words loaded.")
-    return filteredlist
-
+    if lim is None:
+        return wordlist
+    return [wordlist[c] for c in range(len(wordlist)) if len(wordlist[c])<=lim]
 
 def chooseWord(wordlist):
     """
@@ -226,10 +227,11 @@ def gameEnded(during,later,w):
     print("")
     if during == False and later == False:
         print('Type "meaning" to get the dictionary meaning of the "',w,'".')
+    print("Type 'stats' to display all data collected from the previous games")
     gameEnd=input('Want to play again? Type "yes" or "no".')
     testing=True
     while testing:
-        if gameEnd.lower()=="yes" or gameEnd.lower()=="no" or gameEnd.lower()=="meaning":
+        if gameEnd.lower()=="yes" or gameEnd.lower()=="no" or gameEnd.lower()=="meaning" or gameEnd.lower()=="stats":
             testing=False
             return gameEnd.lower()
         else:
@@ -393,8 +395,8 @@ while gameIsOn:
     while flag==2:
         try:
             #Getting words ready
-            a=int(input("Enter the minimum length possible for a word(1-10):"))
-            assert a>=1 and a<=10
+            a=int(input("Enter the maximum length possible for a word(1-13):"))
+            assert a>=1 and a<=13
         except:
             print("Enter a valid number!: ")
         else:
@@ -448,6 +450,16 @@ while gameIsOn:
             else:
                 print("You already called for the meaning!")
                 gameEnd=input("Please type 'yes' to play again or 'no' to quit! ")
+        elif gameEnd=="stats":
+            gameno = 1
+            print("\n")
+            for game in gamesPlayed:
+                print(f"Game no:{gameno}")
+                for key,val in game.items():
+                    print(f"{key} : {val}")
+                
+                gameno+=1
+            gameEnd=gameEnded(hintused,hintlater,secretWord)
         else:
             gameEnd=input("Please enter a valid input! ")
             
